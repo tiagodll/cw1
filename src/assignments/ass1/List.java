@@ -1,40 +1,62 @@
 package assignments.ass1;
-/*
-* List class
-*
-* A List is an ordered collection of any kind of object specified in the parameter.
-*
-* Operations:
-* addToEnd Add a given object to the end of the list.
-* toString A String form of the objects in the list in order,
-* enclosed in square brackets, separated by spaces.
-*/
+
+
 public class List<T> {
     private static final int INIT_LEN = 10;
     private T[] items; // the actual items
     private int numItems; // the number of items currently in the list
-    /*
-    * constructor: initialize the list to be empty
-    */
+
     @SuppressWarnings("unchecked")
     public List() {
         items = (T[]) new Object[INIT_LEN];
         numItems = 0;
     }
-    /*
-    * AddToEnd
-    *
-    * Given: Object obj Do: Add obj to the end of the list.
-    */
-    public void addToEnd(T obj) {}
-    /*
-    * toString
-    *
-    * A String form of the objects in the list in order, enclosed in
-    * square brackets, separated by spaces.
-    */
+
+    public void addToEnd(T obj) {
+        if(numItems > items.length){
+            T[] tmp = (T[]) new Object[2 * INIT_LEN];
+            System.arraycopy(items, 0, tmp, 0, numItems);
+            items = tmp;
+        }
+        items[numItems++] = obj;
+    }
+
     @Override
     public String toString() {
-        return null; // REPLACE WITH YOUR CODE
+        if(numItems == 0) return "[]";
+        else{
+            String result = "[";
+            for(int i=0; i<numItems; i++){
+                result = result + items[i].toString() + " ";
+            }
+            return result + "]";
+        }
+    }
+
+    public T get(int i) {
+        return items[i];
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
