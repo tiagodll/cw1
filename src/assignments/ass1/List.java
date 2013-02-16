@@ -1,15 +1,13 @@
 package assignments.ass1;
 
-
-
 public class List<T> {
     private static final int INIT_LEN = 10;
     private T[] items; // the actual items
     private int numItems; // the number of items currently in the list
     private int currentObject;
-
     @SuppressWarnings("unchecked")
     public List() {
+
         items = (T[]) new Object[INIT_LEN];
         numItems = 0;
     }
@@ -40,7 +38,7 @@ public class List<T> {
     }
     public void firstElement(){ currentObject=0; }
     public T nextElement(){ return items[currentObject++]; }
-    public boolean hasMoreElements(){ return currentObject<numItems-1; }
+    public boolean hasMoreElements(){ return currentObject<numItems; }
 
     //testing the methods
     public static void main(String[] args){
@@ -50,6 +48,16 @@ public class List<T> {
         l.addToEnd("Betty");
         l.addToEnd("Judith");
         System.out.println(l);
+
+        l.firstElement();
+        while (l.hasMoreElements()) {
+            System.out.println("nextElement: " + l.nextElement());
+        }
+
+        List<String> l2 = new List<>();
+        while (l2.hasMoreElements()) {
+            System.out.println("nextElement: " + l2.nextElement());
+        }
     }
 }
 
