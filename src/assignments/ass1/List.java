@@ -13,7 +13,7 @@ public class List<T> {
     }
 
     public void addToEnd(T obj) {
-        if(numItems > items.length){
+        if(numItems >= items.length){
             T[] tmp = (T[]) new Object[2 * INIT_LEN];
             System.arraycopy(items, 0, tmp, 0, numItems);
             items = tmp;
@@ -47,6 +47,19 @@ public class List<T> {
         l.addToEnd("Fred");
         l.addToEnd("Betty");
         l.addToEnd("Judith");
+        l.addToEnd("Fred1");
+        l.addToEnd("Betty1");
+        l.addToEnd("Judith1");
+        l.addToEnd("Fred2");
+        l.addToEnd("Betty2");
+        l.addToEnd("Judith2");
+        l.addToEnd("Fred3");
+        l.addToEnd("Betty3");
+        l.addToEnd("Judith3");
+        l.addToEnd("Judith4");
+        l.addToEnd("Fred5");
+        l.addToEnd("Betty5");
+        l.addToEnd("Judith5");
         System.out.println(l);
 
         l.firstElement();
